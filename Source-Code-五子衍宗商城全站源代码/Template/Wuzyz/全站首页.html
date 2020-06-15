@@ -1,0 +1,278 @@
+ <!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="msapplication-TileColor" content="#1A0066"/>
+<meta name="msapplication-TileImage" content="/images/win8_symbol_140x140.png"/>
+<title>{$SiteName/}_首页</title>
+{$MetaKeywords/}
+{$MetaDescription/}
+{ZL:Boot()/}
+<link href="{$CssDir/}global.css?v={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<script src="/js/scrolltopcontrol.js" type="text/javascript"></script>
+<style type="text/css">
+</style>
+<script language="javascript">
+function ScrollImgLeft(){
+var speed=30
+var scroll_begin = document.getElementById("scroll_begin");
+var scroll_end = document.getElementById("scroll_end");
+var scroll_div = document.getElementById("scroll_div");
+scroll_end.innerHTML=scroll_begin.innerHTML
+function Marquee(){
+if(scroll_end.offsetWidth-scroll_div.scrollLeft<=0)
+scroll_div.scrollLeft-=scroll_begin.offsetWidth
+else
+scroll_div.scrollLeft++
+}
+var MyMar=setInterval(Marquee,speed)
+scroll_div.onmouseover=function() {clearInterval(MyMar)}
+scroll_div.onmouseout=function() {MyMar=setInterval(Marquee,speed)}
+}
+</script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top home_nav" id="home_nav">
+<div class="container">
+<a class="navbar-brand" href="/"><embed pluginspage="http://www.adobe.com/svg/viewer/install/" src="{$LogoUrl/}" type="image/svg+xml" /></a>
+<div class="navbar-header">
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+</div>
+
+<!-- Collect the nav links, forms, and other content for toggling -->
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<ul class="nav navbar-nav navlist">
+<li class="active"><a href="/">首页 </a></li>
+<li id="menu100"><a href="{ZL:GetInfoUrl(100)/}">肾阳虚</a></li>
+<li id="menu1"><a href="{ZL:GetNodeLinkUrl(1)/}">购买产品</a></li>
+<li id="menu3"><a href="{ZL:GetNodeLinkUrl(3)/}">产品介绍</a></li>
+<li id="menu15"><a href="{ZL:GetNodeLinkUrl(15)/}">卓越品质</a></li>
+<li id=""><a href="/guest" target="_blank">留言板</a></li>
+<li id=""><a href="/user/login.aspx">登录/注册</a></li>
+<li id="menu33"><a href="{ZL:GetInfoUrl(33)/}">联系我们</a></li>
+</ul>
+
+
+</div>
+</div><!-- /.container -->
+</nav>
+<div class="h118"></div>
+
+
+<!--导航结束-->
+
+<div id="carousel-example-generic" class="carousel slide home_banner" data-ride="carousel">
+<ol class="carousel-indicators">
+<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+<li data-target="#carousel-example-generic" data-slide-to="3"></li>
+</ol>
+ 
+<div class="carousel-inner" role="listbox">
+<div class="item active home_banner1">
+<a href="http://www.360kad.com/product/66264.shtml?kzone=kadsearch&pagetext=五子衍宗软胶囊" target="_blank"><img src="{$CssDir/}images/home_banner2.jpg" alt="home_banner2"></a>
+</div>
+<div class="item home_banner2"> 
+<a href="http://www.360kad.com/product/66264.shtml?kzone=kadsearch&pagetext=五子衍宗软胶囊" target="_blank"><img src="{$CssDir/}images/home_banner1.jpg" alt="home_banner1"></a>
+</div>
+<div class="item home_banner3">
+<a href="http://www.360kad.com/product/66264.shtml?kzone=kadsearch&pagetext=五子衍宗软胶囊" target="_blank"><img src="{$CssDir/}images/home_banner3.jpg" alt="home_banner3"></a>
+
+</div>
+<div class="item home_banner4">
+<a href="http://www.360kad.com/product/66264.shtml?kzone=kadsearch&pagetext=五子衍宗软胶囊" target="_blank"><img src="{$CssDir/}images/home_banner4.jpg" alt="home_banner4"></a>
+
+</div>
+</div>
+
+<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+<span class="sr-only">Previous</span>
+</a>
+<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+<span class="sr-only">Next</span>
+</a>    
+</div>
+<!--滚动图结束-->
+
+
+<div class="container home_list_new">
+<div class="row padding10">
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 padding5 home_list_l">
+<a href="http://cps.360kad.com/cpstransfer.php?unid=j1837&urlto=http://user.360kad.com/webapi/TrackZaoPai?url=http://www.360kad.com/product/1540.shtml" target="_blank"><img src="{$CssDir/}images/list.png" alt="左侧ad"/></a>
+</div>
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 padding5 home_list_m">
+<div role="tabpanel">
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">备孕百科</a></li>
+<li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">新闻资讯</a></li>
+<span class="pull-right"><a href="{ZL:GetNodeLinkUrl(2)/}">更多>></a></span>
+<div class="home_search">
+<form action="/Search/SearchList.aspx" target="_blank" class="navbar-form navbar-left" role="search">
+<div class="form-group">
+<input type="text" class="form-control" name="keyword" placeholder="全站搜索" />
+</div>
+<button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+</form>
+</div>
+</ul>
+<!-- Tab panes -->
+<div class="tab-content">
+<div role="tabpanel" class="tab-pane active home_new1" id="home">
+{ZL.Label id="首页输出友情链接列表" ShowNum="40" NodeID="5" TitleNum="20" /}
+
+</div>
+<div role="tabpanel" class="tab-pane  home_new2" id="profile">
+<ul>
+{ZL.Label id="输出指定节点标题_带时间属性" NodeID="9" TitleNum="60" ShowNum="8" /}	
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 padding5">
+<div class="home_list_r">
+<div class="home_r_t"><a href="{ZL:GetNodeLinkUrl(11)/}">更多>></a>视频中心</div>
+<video src="https://zoomla.cn/the_sea.mp4" controls>
+your browser does not support the video tag
+</video>
+</div>
+</div>
+</div>
+</div>
+
+<div class="container home_voice">
+<div class="panel panel-default">
+<div class="panel-heading"><h3 class="panel-title">购买评价</h3></div>
+<div class="scrollbox">
+<div class="panel_i"><i class="glyphicon glyphicon-volume-up"></i></div>
+<div id="scroll_div" class="scroll_div">
+<div id="scroll_begin">
+<p><a href="#">宝莲：不错，大朗吃了感觉身体棒棒的。第二次购买了10盒！</a></p>
+<p><a href="#">梅总：好东西，好久都没有晨勃了，吃完第一天，第二天早上就冲天！</a></p>
+<p><a href="#">阳顶天：吃了效果杠杠的，精力十分旺盛</a></p>
+</div>
+<div id="scroll_end"></div>
+</div>
+<script type="text/javascript">ScrollImgLeft();</script>
+</div>
+</div>
+</div>
+
+<div class="container home_pic">
+<div class="row">
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+<div class="home_pic_list">
+<a href="{ZL:GetNodeLinkUrl(15)/}">
+<img src="{$CssDir/}images/h_pic1.jpg" alt="卓越品质"/>
+<span>五子衍宗软胶囊，调和五子珍贵药材千年古方，现代工艺，非比寻常。</span>
+<p>卓越品质</p>
+</a>
+</div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+<div class="home_pic_list">
+<a href="/index">
+<img src="{$CssDir/}images/h_pic2.jpg" alt="备孕社区"/>
+<span>五子衍宗软胶囊能显著增加精子密度，让你突破男关，成就爸业！</span>
+<p>备孕社区</p>
+</a>
+</div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+<div class="home_pic_list">
+<a href="{ZL:GetInfoUrl(100)/}">
+<img src="{$CssDir/}images/h_pic3.jpg" alt="新闻资讯"/>
+<span>什么是肾阳虚？肾阳虚知识解读，让你更了解你的肾！</span>
+<p>肾阳虚</p>
+</a>
+</div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+<div class="home_pic_list">
+<a href="{ZL:GetNodeListUrl(1)/}"><img src="{$CssDir/}images/h_pic4.jpg" alt="联系我们"/>
+<span>轻松一下，玩会游戏！</span>
+<p>会员小游戏</p>
+</a>
+</div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+<div class="home_pic_list">
+<a href="{ZL:GetNodeLinkUrl(18)/}"><img src="{$CssDir/}images/h_pic5.jpg" alt="官方微博"/>
+<span>聚焦各种钜惠活动，经常关注这里，让你买的更实惠!</span>
+<p>会员俱乐部</p>
+</a>
+</div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+<div class="home_pic_list">
+<a href="/Guest"><img src="{$CssDir/}images/h_pic6.jpg" alt="咨询服务"/>
+<span>有问题？<br>五子衍宗软胶囊来帮你！</span>
+<p>咨询服务</p>
+</a>
+</div>
+</div>
+</div>
+</div>
+
+<div class="home_footer">
+<div class="container">
+<p><a href="{ZL:GetInfoUrl(34)/}" target="_blank">关于我们</a><a href="{ZL:GetInfoUrl(33)/}" target="_blank">联系我们</a><a href="#">使用帮助</a><a href="{ZL:GetInfoUrl(21)/}" target="_blank">版权申明</a><a href="{ZL:GetInfoUrl(115)/}">招商加盟</a><a href="{ZL:GetNodeLinkUrl(5)/}">友情链接</a><a href="{ZL:GetInfoUrl(116)/}">人才招聘</a></p>
+{$Copyright/}
+</div>
+</div>
+
+<div class="kefu hidden-xs">
+<ul>
+<li><a href="tel:0757-83981345"><span>联系我们</span><i class="fa fa-phone"></i></a><div class="clearfix"></div></li>
+<li><a href="http://wpa.qq.com/msgrd@v=3&uin=123456&site=qq&menu=yes" target="_blank"><span>在线客服</span><i class="fa  fa-qq"></i></a><div class="clearfix"></div></li>
+<li class="kefu_qrcode"><a href="javascript:;"><span><img src="{$CssDir/}images/about_erwei.png" alt="微信二维码" /></span><i class="fa fa-qrcode"></i></a><div class="clearfix"></div></li>
+<li><a href="/Guest" target="_blank"><span>留言咨询</span><i class="fa fa-pencil"></i></a><div class="clearfix"></div></li>
+<li><a href="mailto:shouxin@chiralchem.com" target="_blank"><span>给我写信</span><i class="fa fa-envelope"></i></a><div class="clearfix"></div></li>
+</ul>
+</div>
+
+</body>
+</html>
+<script>
+$(".bottom-close").click(function(){
+	$(".bottom-contrainer").addClass("bottom-hide");
+	$(".bottom-collspan").removeClass("collspan-hide");
+})
+$(".collspan").click(function(){
+	$(".bottom-contrainer").removeClass("bottom-hide");
+	$(".bottom-collspan").addClass("collspan-hide");	
+})
+</script>
+<script>
+$(function(){
+	$('.right_bar').click(function(){
+		$(this).hide();
+		$('#kefu').show();
+	});
+	$('#kefu .close').click(function(){
+		$('.right_bar').show();
+		$('#kefu').hide();
+		
+	});
+});
+$(function(){
+	$('.right_bar2').click(function(){
+		$(this).hide();
+		$('#wangzhan').show();
+	});
+	$('#wangzhan .close2').click(function(){
+		$('.right_bar2').show();
+		$('#wangzhan').hide();
+		
+	});
+});
+</script>

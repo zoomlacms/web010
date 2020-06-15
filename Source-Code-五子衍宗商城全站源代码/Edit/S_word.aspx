@@ -1,0 +1,1 @@
+﻿<%@ page language="C#" autoeventwireup="true" inherits="Edit_S_word, App_Web_suu24qac" enableviewstatemac="false" enableEventValidation="false" viewStateEncryptionMode="Never" %>

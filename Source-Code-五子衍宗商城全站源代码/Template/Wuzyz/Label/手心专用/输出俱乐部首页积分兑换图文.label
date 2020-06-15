@@ -1,0 +1,40 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>308</LabelID>
+    <LabelName>输出俱乐部首页积分兑换图文</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>手心专用</LabelCate>
+    <LabelDesc />
+    <LabelParam>ShowNum,4,1,显示数|TitleNum,30,1,标题长度|NodeID,1,1,节点ID</LabelParam>
+    <LabelTable>ZL_CommonModel LEFT JOIN ZL_C_Article ON ZL_CommonModel.ItemID=ZL_C_Article.ID</LabelTable>
+    <LabelField>ZL_CommonModel.GeneralID,ZL_CommonModel.Title,ZL_CommonModel.TopImg,ZL_C_Article.integral,ZL_C_Article.prize</LabelField>
+    <LabelWhere>(NodeID=@NodeID or FirstNodeID=@NodeID) And status=99</LabelWhere>
+    <LabelOrder>ZL_CommonModel.CreateTime DESC</LabelOrder>
+    <LabelContent>{Repeate}
+&lt;div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 club_pic"&gt;
+&lt;a href="{ZL:GetInfoUrl({Field="GeneralID"/})/}"&gt;
+&lt;div class="club_pic_t"&gt;&lt;img src="{Field="TopImg"/}" onerror="javascript:this.src='/UploadFiles/nopic.gif';"  alt="{Field="prize"/}" /&gt;&lt;/div&gt;
+&lt;div class="club_pic_b"&gt;
+&lt;h3&gt;{ZL:CutText({Field="prize"/},@TitleNum,)/}&lt;/h3&gt;
+&lt;p&gt;{Field="integral"/}积分兑换&lt;/p&gt;
+&lt;/div&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+{/Repeate}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

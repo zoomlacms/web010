@@ -1,0 +1,253 @@
+﻿{ZL.Source id="文章模型数据源标签"/}<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{SField sid="文章模型数据源标签" FD="Title" page="0"/}_{$SiteName/}</title>
+<meta name="Keywords" content="{SField sid="文章模型数据源标签" FD="Tagkey" page="0"/}" />
+<meta name="Description" content="{SField sid="文章模型数据源标签" FD="Title" page="0"/}">
+{ZL:Boot()/}
+<meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<script src="/js/scrolltopcontrol.js" type="text/javascript"></script>
+<script src="/JS/Controls/B_User.js"></script>
+</head>
+<body>
+{ZL.Label id="全站头部"/} 
+<!--内页通栏banner广告位 -->
+<div class="shen_banner"></div>
+<div class="container">
+<ol class="breadcrumb margin_top20">
+<li><a href="/">首页</a></li>
+<li><a href="{ZL:GetInfoUrl(100)/}">肾阳虚</a></li>
+</ol>
+</div>
+<div class="container">
+<div class="row" style="margin-bottom:20px;">
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+<div class="shen_list">
+<div class="shen_list_t">肾阳虚</div>
+<div class="shen_list_c">
+<ul>
+{ZL.Label id="输出指定节点标题列表_带标识" NodeID="14" /}
+</ul>
+<div class="goumai"><a href="{ZL:GetNodeLinkUrl(1)/}">立即购买</a></div>
+</div>
+</div>
+</div>
+
+<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+<div class="shen_c_rbox">
+<div class="shen_r_t"><p>测测您的肾阳虚指数</p></div>
+<div class="row">
+<div class="checkbox_b">
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+<div class="checkbox"><label><input type="checkbox" name="sxzc" />少精、无精、死精，不能成就爸业</label></div>
+<div class="checkbox"><label><input type="checkbox" name="sxzc" />房事后，第二天很疲劳，整天无精打采</label></div>
+<div class="checkbox"><label><input type="checkbox" name="sxzc" />阳痿、遗精、早泄，硬度大不如前</label></div>
+<div class="checkbox"><label><input type="checkbox" name="sxzc" />畏寒肢冷，老感觉穿的少</label></div>
+<div class="checkbox"><label><input type="checkbox" name="sxzc" />性生活冷淡</label></div>
+<div class="checkbox"><label><input type="checkbox" name="sxzc" />坐久了肩膀/颈椎僵硬、疼痛</label></div>
+<div class="checkbox"><label><input type="checkbox" name="sxzc" />失眠多梦，睡觉时容易醒</label></div>
+<div class="checkbox"><label><input type="checkbox" name="sxzc" />每天晚上起来上厕所，尿频、尿无力</label></div>
+<div class="checkbox"><label><input type="checkbox" name="sxzc" />睡觉时背部出虚汗，早上起来枕头都是湿湿的</label></div>
+</div>
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+<div class="checkbox"><label><input type="checkbox" name="sxzc" />平时容易出虚汗</label></div>
+<div class="checkbox"><label><input type="checkbox" name="sxzc" />工作没精神，经常发困、打瞌睡</label></div>
+<div class="checkbox"><label><input type="checkbox" name="sxzc" />头昏昏的，老提不起精神</label></div>
+<div class="checkbox"><label><input type="checkbox" name="sxzc" />浑身乏力，做什么都没劲儿</label></div>
+<div class="checkbox"><label><input type="checkbox" name="sxzc" />手脚冰凉，冬天怕冷</label></div>
+<div class="checkbox"><label><input type="checkbox" name="sxzc" />记忆力减退，容易忘事</label></div>
+<div class="checkbox"><label><input type="checkbox" name="sxzc" />耳朵老是嗡嗡响</label></div>
+<div class="checkbox"><label><input type="checkbox" name="sxzc" />经常口干、掉头发</label></div>
+<div class="checkbox"><label><input type="checkbox" name="sxzc" />便秘</label></div>
+</div>
+</div>
+</div>
+<div class="btn_box">
+<div class="shen_ti"><a href="javasciprt:;" onClick="SubFun();">提交</a></div>
+<div class="shen_ce"><a href="javasciprt:;" onClick="RetFun();">再测一次</a></div>
+</div>
+</div>
+</div>
+</div>
+<div class="fen_box" id="fen_box1" style="display:none;">
+<div class="fen_box_c"><a href="#"><i class="fa fa-close"></i></a></div>
+<div class="fen_sbox">
+<div class="fen_img"><img src="{$CssDir/}images/fen_img.png" alt="" /></div>
+<div class="defen">
+<div class="defen_t">1-25分</div>
+<ul>
+<li>经测试，您是属于<span>轻度</span>肾阳虚！</li>
+<li><span>需要按照疗程补回肾阳！</span></li>
+<li>针对您的情况给您的建议是：</li>
+<li>服用至少1个疗程（2大盒）以上的五子衍宗软胶囊</li>
+</ul>
+</div>
+</div>
+<div class="fen_box_bot">
+<p>注：勾选1-5个</p>
+<div class="shen_ti"><a href="{ZL:GetNodeLinkUrl(1)/}">马上购买</a></div>
+<div class="shen_ce"><a href="/Guest">留言咨询</a></div>
+</div>
+</div>
+<div class="fen_box" id="fen_box2" style="display:none;">
+<div class="fen_box_c"><a href="#"><i class="fa fa-close"></i></a></div>
+<div class="fen_sbox">
+<div class="fen_img"><img src="{$CssDir/}images/fen_img.png" alt="" /></div>
+<div class="defen">
+<div class="defen_t">26-50分</div>
+<ul>
+<li>经测试，您是属于<span>中度</span>肾阳虚！</li>
+<li><span>需要按照疗程补回肾阳！</span></li>
+<li>针对您的情况给您的建议是：</li>
+<li>服用至少2个疗程（4大盒）以上的五子衍宗软胶囊</li>
+</ul>
+</div>
+</div>
+<div class="fen_box_bot">
+<p>注：勾选6-10个</p>
+<div class="shen_ti"><a href="{ZL:GetNodeLinkUrl(1)/}">马上购买</a></div>
+<div class="shen_ce"><a href="/Guest">留言咨询</a></div>
+</div>
+</div>
+<div class="fen_box" id="fen_box3" style="display:none;">
+<div class="fen_box_c"><a href="#"><i class="fa fa-close"></i></a></div>
+<div class="fen_sbox">
+<div class="fen_img"><img src="{$CssDir/}images/fen_img.png" alt="" /></div>
+<div class="defen">
+<div class="defen_t">50-75分</div>
+<ul>
+<li>经测试，您是属于<span>重度</span>肾阳虚！</li>
+<li><span>需要按照疗程补回肾阳！</span></li>
+<li>针对您的情况给您的建议是：</li>
+<li>服用至少3个疗程（6大盒）以上的五子衍宗软胶囊</li>
+</ul>
+</div>
+</div>
+<div class="fen_box_bot">
+<p>注：勾选11-14个</p>
+<div class="shen_ti"><a href="{ZL:GetNodeLinkUrl(1)/}">马上购买</a></div>
+<div class="shen_ce"><a href="/Guest">留言咨询</a></div>
+</div>
+</div>
+<div class="fen_box" id="fen_box4" style="display:none;">
+<div class="fen_box_c"><a href="#"><i class="fa fa-close"></i></a></div>
+<div class="fen_sbox">
+<div class="fen_img"><img src="{$CssDir/}images/fen_img.png" alt="" /></div>
+<div class="defen">
+<div class="defen_t">76-100分</div>
+<ul>
+<li>经测试，您是属于<span>超重度</span>肾阳虚！</li>
+<li><span>需要按照疗程补回肾阳！</span></li>
+<li>针对您的情况给您的建议是：</li>
+<li>服用至少4个疗程（8大盒）以上的五子衍宗软胶囊</li>
+</ul>
+</div>
+</div>
+<div class="fen_box_bot">
+<p>注：勾选15-18个</p>
+<div class="shen_ti"><a href="{ZL:GetNodeLinkUrl(1)/}">马上购买</a></div>
+<div class="shen_ce"><a href="/Guest">留言咨询</a></div>
+</div>
+</div>
+<iframe id="comm_ifr" scrolling="no" onload="IfrAutoHeight();" src='/Class_14/NodePage.aspx' style="width:100%; margin-top:20px;" frameborder="0"></iframe>
+
+</div><!--主体结束 -->
+
+
+{ZL.Label id="全站底部"/}
+</body>
+</html>
+<script>
+//检测固顶事件
+var IO=document.getElementById('home_nav'),Y=IO,H=0,IE6;
+IE6=window.ActiveXObject&&!window.XMLHttpRequest;
+while(Y){H+=Y.offsetTop;Y=Y.offsetParent};
+if(IE6)
+    IO.style.cssText="position:absolute;top:expression(this.fix?(document"+
+        ".documentElement.scrollTop-(this.javascript||"+H+")):0)";
+window.onscroll=function (){
+    var d=document,s=Math.max(d.documentElement.scrollTop,document.body.scrollTop);
+     if(s>H&&IO.fix||s<=H&&!IO.fix)return;
+    if(!IE6)IO.style.position=IO.fix?"":"fixed";        
+    IO.fix=!IO.fix;
+};
+try{document.execCommand("BackgroundImageCache",false,true)}catch(e){};
+ //]]>
+
+//兼容wp8
+if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+  var msViewportStyle = document.createElement("style");
+  msViewportStyle.appendChild(
+    document.createTextNode(
+      "@-ms-viewport{width:auto!important}"
+    )
+  );
+  document.getElementsByTagName("head")[0].
+    appendChild(msViewportStyle);
+}
+
+$(".bottom-close").click(function(){
+	$(".bottom-contrainer").addClass("bottom-hide");
+	$(".bottom-collspan").removeClass("collspan-hide");
+})
+$(".collspan").click(function(){
+	$(".bottom-contrainer").removeClass("bottom-hide");
+	$(".bottom-collspan").addClass("collspan-hide");	
+})
+$().ready(function(e) {
+    $("#g{SField sid="文章模型数据源标签" FD="GeneralID" page="0"/}").addClass("active");
+});
+function SubFun()
+{
+	var num=$("input[name=sxzc]:checked").length;
+	if(num>=1&&num<=5)
+	{
+		$(".fen_box").hide();
+		$("#fen_box1").show();
+	}
+	else if(num>=6&&num<=10)
+	{
+		$(".fen_box").hide();
+		$("#fen_box2").show();
+	}
+	else if(num>=11&&num<=14)
+	{
+		$(".fen_box").hide();
+		$("#fen_box3").show();
+	}
+	else if(num>=15&&num<=18)
+	{
+		$(".fen_box").hide();
+		$("#fen_box4").show();
+	}
+}
+function RetFun()
+{
+	$(".fen_box").hide();
+	$("input[type=checkbox]").removeAttr("checked");
+}
+function IfrAutoHeight() { var $ifr = $("#comm_ifr"); $ifr.height($ifr.contents().height()); }
+
+var buser = new B_User();
+buser.IsLogged(function(data,flag){
+	if(flag)
+	{
+		data=JSON.parse(data);
+		var uname=data.UserName;
+		if(uname.length>5)
+			uname=uname.substring(0,5)+"...";
+		$(".nav_user").html("<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-user\"></i> "+uname+" <span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/User/Default.aspx\">会员中心</a></li><li><a href=\"/User/Default.aspx\">推客中心</a></li><li><a href=\"/User/Default.aspx\">财务信息</a></li><li><a href=\"javascript:;\" onclick=\"LogoutFun();\">安全退出</a></li></ul>");
+	}
+	else
+	{
+		$(".nav_user").html("<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-user\"></i>登录/注册 <span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/User/login.aspx\" target=\"_blank\">用户登录</a></li><li><a href=\"/User/Register.aspx\" target=\"_blank\">用户注册</a></li></ul>");
+	}
+});
+function LogoutFun()
+{
+	buser.Logout(function(){location=location;});
+}
+
+</script>

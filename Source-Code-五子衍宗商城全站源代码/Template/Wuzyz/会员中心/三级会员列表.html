@@ -1,0 +1,39 @@
+﻿{ZL.Source id="节点栏目信息数据源"/}
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>我的推广</title>
+<meta name="Keywords" content="{SField sid="节点栏目信息数据源" FD="Meta_Keywords" page="0"/}" />
+<meta name="description" content="{SField sid="节点栏目信息数据源" FD="Meta_Description" page="0"/}" />
+{ZL:Boot()/}
+<meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+</head>
+<body class="fans_body">
+<div class="fans_top">
+<ul>
+<li><a href="/Class_3/NodeNews.aspx">区长({ZL.Label id="获取当前用户一级会员总数" /})</a></li>
+<li><a href="/Class_3/NodeHot.aspx">站长({ZL.Label id="获取当前用户二级会员总数" /})</a></li>
+<li class="active"><a href="/Class_3/NodeElite.aspx">队长({ZL.Label id="获取当前用户三级会员总数" /})</a></li>
+<div class="clearfix"></div>
+</ul>
+</div>
+
+<div class="container padding0">
+<div class="fans_list">
+{ZL.Label id="获取当前用户三级会员列表_分页" ShowNum="10" /}
+</div>
+</div>
+<div style="height:54px;"></div>
+<div class="mobile_bottom" id="mobile_bottom2">
+<ul>
+<li><a href="/Class_16/Default.aspx">首页</a></li>
+<li><a href="/Class_3/Default.aspx">产品中心</a></li>
+<li><a href="/User/Default1.aspx">个人中心</a></li>
+<li><a href="/Class_19/NodeElite.aspx">推客中心</a></li>
+<div class="clearfix"></div>
+</ul>
+</div>
+</body>
+</html>

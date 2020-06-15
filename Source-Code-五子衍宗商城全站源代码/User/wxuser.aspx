@@ -1,0 +1,1 @@
+﻿<%@ page language="C#" autoeventwireup="true" inherits="Test_wxuser, App_Web_gxff0lg5" enableEventValidation="false" viewStateEncryptionMode="Never" %>

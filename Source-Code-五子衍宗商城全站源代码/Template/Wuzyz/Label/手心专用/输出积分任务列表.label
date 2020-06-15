@@ -1,0 +1,37 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>310</LabelID>
+    <LabelName>输出积分任务列表</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>手心专用</LabelCate>
+    <LabelDesc />
+    <LabelParam>ShowNum,2,1,显示数|TitleNum,60,1,标题长度|NodeID,1,1,节点ID</LabelParam>
+    <LabelTable>ZL_CommonModel LEFT JOIN ZL_C_Article ON ZL_CommonModel.ItemID=ZL_C_Article.ID</LabelTable>
+    <LabelField>ZL_CommonModel.GeneralID,ZL_CommonModel.Title,ZL_C_Article.Complimentary,ZL_C_Article.endtime</LabelField>
+    <LabelWhere>(NodeID=@NodeID or FirstNodeID=@NodeID) And status=99</LabelWhere>
+    <LabelOrder>ZL_CommonModel.CreateTime DESC</LabelOrder>
+    <LabelContent>{Repeate}
+&lt;div class="jifen_b"&gt;
+&lt;img src="{$CssDir/}images/jifen_bg.png" alt="{Field="Title"/}" /&gt;
+&lt;div class="jifen_bbox"&gt;
+&lt;div class="jifen_bl"&gt;&lt;p&gt;&lt;i class="fa fa-plus"&gt;&lt;/i&gt;&lt;font&gt;{Field="Complimentary"/}&lt;/font&gt;积分&lt;/p&gt;&lt;/div&gt;
+&lt;div class="jifen_bm"&gt;&lt;p&gt;{ZL:CutText({Field="Title"/},@TitleNum,)/}&lt;/p&gt;&lt;span&gt;截至{ZL:FormatDate({Field="endtime"/},yyyy-MM-dd)/}&lt;/span&gt;&lt;/div&gt;
+&lt;div class="jifen_br"&gt;&lt;a href="{ZL:GetInfoUrl({Field="GeneralID"/})/}"&gt;参加任务&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+{/Repeate}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+  </Table>
+</NewDataSet>

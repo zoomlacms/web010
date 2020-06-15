@@ -1,0 +1,96 @@
+﻿{ZL.Source id="文章模型数据源标签"/}<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{SField sid="文章模型数据源标签" FD="Title" page="0"/}_{$SiteName/}</title>
+<meta name="Keywords" content="{SField sid="文章模型数据源标签" FD="Tagkey" page="0"/}" />
+<meta name="Description" content="{SField sid="文章模型数据源标签" FD="Title" page="0"/}">
+{ZL:Boot()/}
+<meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<script src="/js/scrolltopcontrol.js" type="text/javascript"></script>
+<script src="/JS/Controls/B_User.js"></script>
+</head>
+<body>
+{ZL.Label id="全站头部"/} 
+<div class="zhuo_banner"></div><!-- 通栏广告位 -->
+
+
+<div class="container">
+<ol class="breadcrumb margin_top20">
+<li><a href="/">首页</a></li>
+<li><a href="{ZL:GetNodeLinkUrl(15)/}">卓越品质</a></li>
+</ol>
+</div>
+
+
+<div class="container">
+<div class="row">
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+<div class="shen_list">
+<div class="shen_list_t" style="height:auto; line-height:normal; padding-bottom:.5em;">卓越品质</div>
+<div class="zhuo_list_c">
+<ul>
+<li id="gmenu106"><a href="{ZL:GetInfoUrl(106)/}"><i class="fa fa-caret-right"></i> 五子衍宗软胶囊的历史</a></li>
+<li id="gmenu107"><a href="{ZL:GetInfoUrl(107)/}"><i class="fa fa-caret-right"></i> 五子衍宗软胶囊的荣誉</a></li>
+<li>
+<a href="{ZL:GetInfoUrl(108)/}"><i class="fa fa-caret-right"></i> 五子衍宗软胶囊的优点</a>
+<ul>
+<li id="gmenu108"><a href="{ZL:GetInfoUrl(108)/}">五子衍宗软胶囊对比报告1</a></li>
+<li id="gmenu109"><a href="{ZL:GetInfoUrl(109)/}">五子衍宗软胶囊对比报告2</a></li>
+<li id="gmenu110"><a href="{ZL:GetInfoUrl(110)/}">五子衍宗软胶囊的五粒种子</a></li>
+<li id="gmenu111"><a href="{ZL:GetInfoUrl(111)/}">五子衍宗软胶囊的四大萃取</a></li>
+<li id="gmenu112"><a href="{ZL:GetInfoUrl(112)/}">五子衍宗软胶囊三大调养</a></li>
+<li id="gmenu113"><a href="{ZL:GetInfoUrl(113)/}">五子衍宗软胶囊二胎必备</a></li>
+<li id="gmenu114"><a href="{ZL:GetInfoUrl(114)/}">一粒五子衍宗软胶囊</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="goumai" style="border-top:1px solid #ffcf91; margin-top:2em;"><a href="{ZL:GetNodeLinkUrl(1)/}">立即购买</a></div>
+</div>
+</div>
+<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+<span hidden><SCRIPT language=javascript src="/Common/GetHits.aspx?id={SField sid="文章模型数据源标签" FD="GeneralID" page="0"/}"></SCRIPT></span>
+<div class="myContent text-center" style="margin-top:0;">
+{SField sid="文章模型数据源标签" FD="content" page="0"/}
+</div>
+</div>
+</div>
+</div>
+{ZL.Label id="全站底部"/}
+</body>
+</html>
+<script>
+
+$(".bottom-close").click(function(){
+	$(".bottom-contrainer").addClass("bottom-hide");
+	$(".bottom-collspan").removeClass("collspan-hide");
+})
+$(".collspan").click(function(){
+	$(".bottom-contrainer").removeClass("bottom-hide");
+	$(".bottom-collspan").addClass("collspan-hide");	
+})
+$("#gmenu{SField sid="文章模型数据源标签" FD="GeneralID" page="0"/}").addClass("active");
+$("#menu15").addClass("active");
+var buser = new B_User();
+buser.IsLogged(function(data,flag){
+	if(flag)
+	{
+		data=JSON.parse(data);
+		var uname=data.UserName;
+		if(uname.length>5)
+			uname=uname.substring(0,5)+"...";
+		$(".nav_user").html("<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-user\"></i> "+uname+" <span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/User/Default.aspx\">会员中心</a></li><li><a href=\"/User/Default.aspx\">推客中心</a></li><li><a href=\"/User/Default.aspx\">财务信息</a></li><li><a href=\"javascript:;\" onclick=\"LogoutFun();\">安全退出</a></li></ul>");
+	}
+	else
+	{
+		$(".nav_user").html("<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-user\"></i>登录/注册 <span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/User/login.aspx\" target=\"_blank\">用户登录</a></li><li><a href=\"/User/Register.aspx\" target=\"_blank\">用户注册</a></li></ul>");
+	}
+});
+function LogoutFun()
+{
+	buser.Logout(function(){location=location;});
+}
+
+</script>

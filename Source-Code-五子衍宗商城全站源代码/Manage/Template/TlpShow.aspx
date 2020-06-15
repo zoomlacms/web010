@@ -1,0 +1,1 @@
+﻿<%@ page language="C#" autoeventwireup="true" inherits="Manage_Template_TlpShow, App_Web_x1hw5nu4" enableEventValidation="false" viewStateEncryptionMode="Never" %>

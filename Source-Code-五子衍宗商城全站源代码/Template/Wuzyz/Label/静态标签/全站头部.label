@@ -1,0 +1,57 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>293</LabelID>
+    <LabelName>全站头部</LabelName>
+    <LabelType>1</LabelType>
+    <LabelCate>静态标签</LabelCate>
+    <LabelDesc />
+    <LabelParam />
+    <LabelTable />
+    <LabelField />
+    <LabelWhere />
+    <LabelOrder />
+    <LabelContent>&lt;nav class="navbar navbar-default navbar-fixed-top home_nav" id="home_nav"&gt;
+&lt;div class="container"&gt;
+&lt;a class="navbar-brand" href="/"&gt;&lt;embed pluginspage="http://www.adobe.com/svg/viewer/install/" src="{$LogoUrl/}" type="image/svg+xml" /&gt;&lt;/a&gt;
+&lt;div class="navbar-header"&gt;
+&lt;button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"&gt;
+&lt;span class="sr-only"&gt;Toggle navigation&lt;/span&gt;
+&lt;span class="icon-bar"&gt;&lt;/span&gt;
+&lt;span class="icon-bar"&gt;&lt;/span&gt;
+&lt;span class="icon-bar"&gt;&lt;/span&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;!-- Collect the nav links, forms, and other content for toggling --&gt;
+&lt;div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"&gt;
+&lt;ul class="nav navbar-nav navlist"&gt;
+&lt;li&gt;&lt;a href="/"&gt;首页 &lt;/a&gt;&lt;/li&gt;
+&lt;li id="menu100"&gt;&lt;a href="{ZL:GetInfoUrl(100)/}"&gt;肾阳虚&lt;/a&gt;&lt;/li&gt;
+&lt;li id="menu1"&gt;&lt;a href="{ZL:GetNodeLinkUrl(1)/}"&gt;购买产品&lt;/a&gt;&lt;/li&gt;
+&lt;li id="menu3"&gt;&lt;a href="{ZL:GetNodeLinkUrl(3)/}"&gt;产品介绍&lt;/a&gt;&lt;/li&gt;
+&lt;li id="menu15"&gt;&lt;a href="{ZL:GetNodeLinkUrl(15)/}"&gt;卓越品质&lt;/a&gt;&lt;/li&gt;
+&lt;li id=""&gt;&lt;a href="/guest" target="_blank"&gt;留言板&lt;/a&gt;&lt;/li&gt;
+&lt;li id=""&gt;&lt;a href="/user/login.aspx"&gt;登录/注册&lt;/a&gt;&lt;/li&gt;
+&lt;li id="menu33"&gt;&lt;a href="{ZL:GetInfoUrl(33)/}"&gt;联系我们&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;!-- /.container --&gt;
+&lt;/nav&gt;
+&lt;div class="h118"&gt;&lt;/div&gt;
+&lt;!--导航结束--&gt;</LabelContent>
+    <LabelCount />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

@@ -1,0 +1,120 @@
+﻿{ZL.Source id="节点栏目信息数据源"/}<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{SField sid="节点栏目信息数据源" FD="NodeName" page="0"/}_{$SiteName/}</title>
+<meta name="Keywords" content="{SField sid="节点栏目信息数据源" FD="Meta_Keywords" page="0"/}" />
+<meta name="description" content="{SField sid="节点栏目信息数据源" FD="Meta_Description" page="0"/}" />
+{ZL:Boot()/}
+<meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="/dist/css/weui.min.css">
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<script src="/js/scrolltopcontrol.js" type="text/javascript"></script>
+<script src="/JS/Controls/B_User.js"></script>
+<script type="text/javascript" src="/JS/Controls/ZL_PCC.js"></script>
+<script src="/JS/ICMS/area.js"></script>
+<script src="/JS/ZL_ValidateCode.js"></script>
+<style>
+.code i { position:absolute; z-index:10; left:60px; top:8px;}
+</style>
+</head>
+<body>
+<div class="container padding0_xs sales_main">
+<div class="sales_main_t"><img src="{$CssDir/}images/wz.jpg" alt="五子衍宗软胶囊" /></div>
+
+<div class="sales_main_c">
+<div class="weui_cells weui_cells_form" style="margin-top:0;">
+<div class="weui_cell">
+<div class="weui_cell_hd"><label class="weui_label">会员ID</label></div>
+<div class="weui_cell_bd weui_cell_primary">
+<input type="text" name="PubUserID" id="PubUserID" value="{ZL:GetuserID()/}" readonly class="form-control input-sm" />
+</div>
+</div>
+<div class="weui_cell">
+<div class="weui_cell_hd"><label class="weui_label">会员名</label></div>
+<div class="weui_cell_bd weui_cell_primary">
+<input type="text" name="PubInputer" id="PubInputer" value="{ZL:GetuserName()/}" readonly class="form-control input-sm" />
+</div>
+</div>
+<div class="weui_cell">
+<div class="weui_cell_hd"><label class="weui_label">业绩编码</label></div>
+<div class="weui_cell_bd weui_cell_primary">
+<input type="text" ID="bm" name="bm" Class="form-control input-sm" placeholder="8位纯数字"/>
+</div>
+</div>
+<div class="weui_cell">
+<div class="weui_cell_hd"><label class="weui_label">验证码</label></div>
+<div class="weui_cell_bd weui_cell_primary code">
+<div class="input-group input-group-sm">
+<input type="text" id="VCode" placeholder="验证码" maxlength="6" class="codestyle form-control" name="VCode" />
+<span class="input-group-addon" style="padding:1px 2px;"><img id="VCode_img" title="点击刷新验证码" class="codeimg" src="" /></span>
+</div>
+<input type="hidden" id="VCode_hid" name="VCode_hid" />
+</div>
+</div>
+<div class="weui_cell">
+<div class="weui_cell_hd"><label class="weui_label">备注</label></div>
+<div class="weui_cell_bd weui_cell_primary">
+<textarea type="text" ID="PubContent" name="PubContent" Class="form-control input-sm" rows="2"></textarea>
+</div>
+</div>
+</div>
+<div class="weui_btn_area">
+<button type="button" Class="weui_btn weui_btn_primary" onClick="CheckUserCode();">确定</button>
+</div>
+
+</div>
+</div>
+</body>
+</html>
+<script>
+function isExist(obj){
+	var success=false;
+	var bm = obj.bm.value;
+	var para = { key:'',alias:'bmIsExits',psize:'1000',cpage:1,cate:1,grade:0,bm:bm}
+	$.post("/API/Center.ashx?action=GetCustom",para,function(data){
+		data=JSON.parse(data);
+		console.log(data);
+		if(data.result != "[]")
+		{
+			alert("该编码已存在！请核对并重填！");
+		}
+		else{
+			success = true;
+			return success;
+		}
+	});
+	return success;
+};
+$(function () {
+	$("#VCode").ValidateCode();
+	$("#VCode").attr("name","VCode").addClass("form-control");
+});
+$().ready(function(e) {
+	var data={PubContentid:'10658',PubTitle:'asdasd',PubContent:'asdasdsa'};
+	console.log(data);
+    //$.post("/API/Mod/pub.ashx?action=add&pubid=8&id=53", {data:JSON.stringify(data)},function(data){
+	//	console.log(data)
+//	});
+});
+
+function CheckUserCode() {
+	var bl = true;
+	$.ajax({
+		url: '/API/UserCheck.ashx',
+		data: { action: 'CheckKey', uname: $("#VCode").val() },
+		type: 'POST',
+		success: function (data) {
+			if (data == '1') {
+				$("#usercode_li").show();
+				bl = false;
+			}
+			else {
+				alert("验证码错误！");
+				$("#usercode_li").hide();
+			}
+		}
+	});
+	return bl;
+}
+</script>

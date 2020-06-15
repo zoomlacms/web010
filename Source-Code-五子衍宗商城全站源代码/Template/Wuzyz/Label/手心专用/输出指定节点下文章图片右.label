@@ -1,0 +1,43 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>325</LabelID>
+    <LabelName>输出指定节点下文章图片右</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>手心专用</LabelCate>
+    <LabelDesc />
+    <LabelParam>NodeID,1,1,节点ID|TitleNum,50,1,标题长|SynNum,100,1,简介长|ShowNum,4,1,显示数</LabelParam>
+    <LabelTable>ZL_CommonModel LEFT JOIN ZL_C_Article ON ZL_CommonModel.ItemID=ZL_C_Article.ID</LabelTable>
+    <LabelField>ZL_CommonModel.NodeID,ZL_CommonModel.CreateTime,ZL_CommonModel.GeneralID,ZL_CommonModel.Title,ZL_CommonModel.TopImg,ZL_C_Article.synopsis</LabelField>
+    <LabelWhere>(NodeID=@NodeID or FirstNodeID=@NodeID) and status = 99 and GeneralID not in (select top 3 GeneralID from ZL_CommonModel where NodeID=@NodeID order by CreateTime desc)</LabelWhere>
+    <LabelOrder>ZL_CommonModel.GeneralID Desc</LabelOrder>
+    <LabelContent>{Repeate}
+&lt;li class="media"&gt;
+&lt;a href="{ZL:GetInfoUrl({Field="GeneralID"/})/}" {ZL:GetInfoOpen({Field="NodeID"/})/}&gt;
+&lt;div class="media-body media-middle"&gt;
+&lt;h4 class="media-heading"&gt;{ZL:CutText({Field="Title"/},@TitleNum,)/}&lt;/h4&gt;
+&lt;p&gt;{ZL:CutText({Field="synopsis"/},@SynNum,)/}&lt;/p&gt;
+&lt;span&gt;{ZL:FormatDate({Field="CreateTime"/},yyyy-MM-dd)/}&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="media-right"&gt;
+&lt;img class="media-object" src="{Field="TopImg"/}" alt="{Field="Title"/}" title="{Field="Title"/}" /&gt;
+&lt;/div&gt;
+&lt;/a&gt;
+&lt;/li&gt;
+{/Repeate}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_CommonModel","tb_s":"ZL_C_Article"}</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

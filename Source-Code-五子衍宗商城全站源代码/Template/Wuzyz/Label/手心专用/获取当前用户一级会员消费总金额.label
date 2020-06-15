@@ -1,0 +1,30 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>315</LabelID>
+    <LabelName>获取当前用户一级会员消费总金额</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>手心专用</LabelCate>
+    <LabelDesc />
+    <LabelParam />
+    <LabelTable>ZL_CommonModel LEFT JOIN ZL_C_xsyj ON ZL_CommonModel.ItemID=ZL_C_xsyj.ID</LabelTable>
+    <LabelField>SUM(AllMoney) As AllMoney</LabelField>
+    <LabelWhere>ModelID=49 And Status=99 And kyid in (select UserID from ZL_User where ParentUserID='{ZL:GetuserID()/}')</LabelWhere>
+    <LabelOrder />
+    <LabelContent>{ZL:GetMoney({Field="AllMoney"/},2,1)/}</LabelContent>
+    <LabelCount />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

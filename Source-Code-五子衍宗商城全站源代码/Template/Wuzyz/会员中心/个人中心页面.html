@@ -1,0 +1,44 @@
+﻿{ZL.Source id="节点栏目信息数据源"/}
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>个人中心_{$SiteName/}</title>
+<meta name="Keywords" content="{SField sid="节点栏目信息数据源" FD="Meta_Keywords" page="0"/}" />
+<meta name="description" content="{SField sid="节点栏目信息数据源" FD="Meta_Description" page="0"/}" />
+{ZL:Boot()/}
+<meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<script src="/js/scrolltopcontrol.js" type="text/javascript"></script>
+</head>
+<body class="user_bg">
+<div class="user_top">
+<div class="container">
+<div class="user_top_m"><a href="/User/Info/UserInfo.aspx"><img src="{$CssDir/}images/mobile_banner1.png" alt="" /></a></div>
+<div class="user_top_p">
+<p>等级：<asp:Literal id="LvIcon_Li" runat="server"></asp:Literal> <asp:Label ID="UserLvLb" runat="server" Text=""></asp:Label></p>
+<p>会员：<asp:Label ID="UserNameLb" runat="server" Text=""></asp:Label></p>
+</div>
+</div>
+</div>
+<div class="user_cont">
+<ul>
+<a href="#"><li><p><i class="fa fa-cny"></i>我的佣金</p><i class="fa fa-angle-right con_right"></i><span><i class="fa fa-cny"></i><a href="info/ConsumeDetail.aspx?SType=1" title="点击查看资金明细"><asp:Label ID="UserYeLb" runat="server" Text=""></asp:Label></a></span>
+</li></a>
+<a href ="#"><li><p><i class="fa fa-diamond"></i>我的五子好宝宝站</p><i class="fa fa-angle-right con_right"></i></li></a>
+<a href="#"><li><p><i class="fa fa-users"></i>推客中心</p><i class="fa fa-angle-right con_right"></i></li></a>
+</ul>
+</div>
+
+
+<div class="my_foot">
+<ul>
+<li><a href="/user/Default1.aspx">首页</a></li>
+<li><a href="/Class_3/Default.aspx">产品中心</a></li>
+<li><a href="#">推客申请</a></li>
+<li><a href="#">推客中心</a></li>
+</ul>
+</div>
+
+</body>
+</html>

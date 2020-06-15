@@ -1,0 +1,111 @@
+﻿{ZL.Source id="节点栏目信息数据源"/}
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{SField sid="节点栏目信息数据源" FD="NodeName" page="0"/}_{$SiteName/}</title>
+<meta name="Keywords" content="{SField sid="节点栏目信息数据源" FD="Meta_Keywords" page="0"/}" />
+<meta name="description" content="{SField sid="节点栏目信息数据源" FD="Meta_Description" page="0"/}" />
+{ZL:Boot()/}
+<meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<script src="/js/scrolltopcontrol.js" type="text/javascript"></script>
+<script src="/JS/Controls/B_User.js"></script>
+</head>
+<body>
+{ZL.Label id="全站头部"/} 
+<div class="shang_banner">
+<div><img src="/Common/Common.ashx?url=http://x014.2013.hx008.com/sale.aspx?proid=1" alt="商品销售二维码" /><p>扫码购买</p></div>
+</div><!-- 通栏广告位 -->
+<div class="container">
+<ol class="breadcrumb margin_top20">
+<li><a href="/">首页</a></li>
+<li><a href="{ZL:GetNodeLinkUrl(1)/}">购买商品</a></li>
+</ol>
+</div>
+<div class="container">
+<ul class="nav nav-tabs shop_list hidden-xs">
+<li><a href="{ZL:GetInfoUrl(103)/}">网上购买</a></li>
+<li><a href="{ZL:GetInfoUrl(104)/}">药店购买</a></li>
+<li><a href="{ZL:GetInfoUrl(105)/}">电话订购</a></li>
+<li><a href="#mouse" data-toggle="tab">帮助中心</a></li>
+<li><a href="#tiger" data-toggle="tab">购买评价</a></li>
+</ul>
+<!-- Tab panes -->
+<div class="tab-content">
+<div class="shop_list_box">
+<div class="shop_list_t">亲，请您根据自己的习惯，选择购买方式，网上购买或药店购买哦！</div>
+<div class="shop_jie">
+<a href="{ZL:GetInfoUrl(103)/}"><i class="fa fa-laptop"></i><br>网上购买</a>
+<a href="{ZL:GetInfoUrl(123)/}"><i class="fa fa-calendar-plus-o"></i><br>药店购买</a>
+<a href="tel:0757-83981345"><i class="fa fa-phone"></i><br>电话订购</a>
+</div>
+</div>
+</div>  
+</div>
+{ZL.Label id=全站底部"/}
+
+
+</body>
+</html>
+<script>
+//检测固顶事件
+var IO=document.getElementById('home_nav'),Y=IO,H=0,IE6;
+IE6=window.ActiveXObject&&!window.XMLHttpRequest;
+while(Y){H+=Y.offsetTop;Y=Y.offsetParent};
+if(IE6)
+    IO.style.cssText="position:absolute;top:expression(this.fix?(document"+
+        ".documentElement.scrollTop-(this.javascript||"+H+")):0)";
+window.onscroll=function (){
+    var d=document,s=Math.max(d.documentElement.scrollTop,document.body.scrollTop);
+     if(s>H&&IO.fix||s<=H&&!IO.fix)return;
+    if(!IE6)IO.style.position=IO.fix?"":"fixed";        
+    IO.fix=!IO.fix;
+};
+try{document.execCommand("BackgroundImageCache",false,true)}catch(e){};
+ //]]>
+
+//兼容wp8
+if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+  var msViewportStyle = document.createElement("style");
+  msViewportStyle.appendChild(
+    document.createTextNode(
+      "@-ms-viewport{width:auto!important}"
+    )
+  );
+  document.getElementsByTagName("head")[0].
+    appendChild(msViewportStyle);
+}
+
+$(".bottom-close").click(function(){
+	$(".bottom-contrainer").addClass("bottom-hide");
+	$(".bottom-collspan").removeClass("collspan-hide");
+})
+$(".collspan").click(function(){
+	$(".bottom-contrainer").removeClass("bottom-hide");
+	$(".bottom-collspan").addClass("collspan-hide");	
+})
+$().ready(function(e) {
+    $("#menu{SField sid="节点栏目信息数据源" FD="NodeID" page="0"/}").addClass("active");
+});
+var buser = new B_User();
+buser.IsLogged(function(data,flag){
+	if(flag)
+	{
+		data=JSON.parse(data);
+		var uname=data.UserName;
+		if(uname.length>5)
+			uname=uname.substring(0,5)+"...";
+		$(".nav_user").html("<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-user\"></i> "+uname+" <span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/User/Default.aspx\">会员中心</a></li><li><a href=\"/User/Default.aspx\">推客中心</a></li><li><a href=\"/User/Default.aspx\">财务信息</a></li><li><a href=\"javascript:;\" onclick=\"LogoutFun();\">安全退出</a></li></ul>");
+	}
+	else
+	{
+		$(".nav_user").html("<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-user\"></i>登录/注册 <span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/User/login.aspx\" target=\"_blank\">用户登录</a></li><li><a href=\"/User/Register.aspx\" target=\"_blank\">用户注册</a></li></ul>");
+	}
+});
+function LogoutFun()
+{
+	buser.Logout(function(){location=location;});
+}
+
+</script>

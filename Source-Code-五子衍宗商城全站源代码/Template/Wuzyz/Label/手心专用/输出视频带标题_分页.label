@@ -1,0 +1,45 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>295</LabelID>
+    <LabelName>输出视频带标题_分页</LabelName>
+    <LabelType>4</LabelType>
+    <LabelCate>手心专用</LabelCate>
+    <LabelDesc />
+    <LabelParam>NodeID,86,1,节点ID|TitieNum,30,1,标题长度|ShowNum,10,1,调用数</LabelParam>
+    <LabelTable>ZL_CommonModel LEFT JOIN ZL_C_video ON ZL_CommonModel.ItemID=ZL_C_video.ID</LabelTable>
+    <LabelField>ZL_CommonModel.GeneralID,ZL_CommonModel.NodeID,ZL_CommonModel.Title,ZL_C_video.pic,ZL_C_video.synopsis</LabelField>
+    <LabelWhere>(NodeID=@NodeID or FirstNodeID=@NodeID)  and status=99</LabelWhere>
+    <LabelOrder>ZL_CommonModel.CreateTime DESC</LabelOrder>
+    <LabelContent>&lt;div class="media_list"&gt;
+&lt;ul&gt;
+ {Repeate} 
+  &lt;li&gt;
+  &lt;a  href="{ZL:GetInfoUrl({Field="GeneralID"/})/}" title="{Field="Title"/}"&gt;
+  &lt;img   src="{ZL:GetPicUrl({Field="pic"/})/}" alt="{Field="Title"/}" class="img-thumbnail" alt="{ZL:CutText({Field="Title"/}/}"/&gt;
+  &lt;/a&gt;
+  &lt;div class="media-body"&gt;
+  &lt;h4 class="media-heading"&gt;&lt;a href="{ZL:GetInfoUrl({Field="GeneralID"/})/}"&gt;{ZL:CutText({Field="Title"/},@TitieNum,)/}&lt;/a&gt;&lt;/h4&gt;
+    &lt;p&gt;{ZL:CutText({Field="synopsis"/},@TitieNum,)/}&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;/li&gt;{/Repeate}
+  &lt;/ul&gt;
+&lt;/div&gt;
+&lt;div style="clear:both"&gt;&lt;/div&gt;
+ {ZL.Page id="大图标响应式列表分页v3"/}</LabelContent>
+    <LabelCount>@ShowNum</LabelCount>
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

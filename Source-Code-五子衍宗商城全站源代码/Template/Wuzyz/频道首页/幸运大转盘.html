@@ -1,0 +1,487 @@
+﻿{ZL.Source id="节点栏目信息数据源"/}
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{SField sid="节点栏目信息数据源" FD="NodeName" page="0"/}_{$SiteName/}</title>
+<meta name="Keywords" content="{SField sid="节点栏目信息数据源" FD="Meta_Keywords" page="0"/}" />
+<meta name="description" content="{SField sid="节点栏目信息数据源" FD="Meta_Description" page="0"/}" />
+{ZL:Boot()/}
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<script src="/js/scrolltopcontrol.js" type="text/javascript"></script>
+<script src="/JS/Controls/B_User.js"></script>
+
+<style>
+.home_footer { margin-top:0;}
+</style>
+</head>
+<body>
+{ZL.Label id="全站头部"/} 
+<!--内页通栏banner广告位 -->
+
+<div style="background:#FFC40A">
+<div class="container">
+<div class="row">
+<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+<div class="chou_lt"><img src="{$CssDir/}images/chou_heart.png" alt="" />抽奖<img src="{$CssDir/}images/chou_heart.png" alt="" /></div>
+<div class="turntable-bg">
+<div class="pointer"><img src="{$CssDir/}images/pointer.png" alt="pointer"/></div>
+<div class="rotate" ><img id="rotate" src="{$CssDir/}images/turntable.png" alt="turntable"/></div>
+</div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+<div class="chou_rb">
+<h1>收藏本站抽奖</h1>
+<p>还剩：<b>18</b>天<b>23</b>小时<b>6</b>分<b>38</b>秒<br>今日您已抽奖<b>0</b>次，总共已抽奖<b>0</b>次<br>每日限抽奖<b>1</b>次，总共限抽奖<b>2</b>次</p>
+<span>抽奖任务：</span>
+<p>点击并完成下面任务可获得抽奖机会：</p>
+<a href="#">收藏本站</a>
+<ul>
+<li>奖项说明</li>
+<li>特等奖 10000积分</li>
+<li>一等奖 1000积分</li>
+<li>二等奖 500积分</li>
+<li>三等奖 200积分</li>
+<li>四等奖 100积分</li>
+<li>五等奖 20积分</li>
+</ul>
+<span>抽奖说明：</span>
+<p>收藏本站即可抽奖</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+{ZL.Label id="全站底部"/}
+</body>
+</html>
+
+<script>
+//检测固顶事件
+var IO=document.getElementById('home_nav'),Y=IO,H=0,IE6;
+IE6=window.ActiveXObject&&!window.XMLHttpRequest;
+while(Y){H+=Y.offsetTop;Y=Y.offsetParent};
+if(IE6)
+    IO.style.cssText="position:absolute;top:expression(this.fix?(document"+
+        ".documentElement.scrollTop-(this.javascript||"+H+")):0)";
+window.onscroll=function (){
+    var d=document,s=Math.max(d.documentElement.scrollTop,document.body.scrollTop);
+     if(s>H&&IO.fix||s<=H&&!IO.fix)return;
+    if(!IE6)IO.style.position=IO.fix?"":"fixed";        
+    IO.fix=!IO.fix;
+};
+try{document.execCommand("BackgroundImageCache",false,true)}catch(e){};
+ //]]>
+
+//兼容wp8
+if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+  var msViewportStyle = document.createElement("style");
+  msViewportStyle.appendChild(
+    document.createTextNode(
+      "@-ms-viewport{width:auto!important}"
+    )
+  );
+  document.getElementsByTagName("head")[0].
+    appendChild(msViewportStyle);
+}
+
+(function($) {
+var supportedCSS,styles=document.getElementsByTagName("head")[0].style,toCheck="transformProperty WebkitTransform OTransform msTransform MozTransform".split(" ");
+for (var a=0;a<toCheck.length;a++) if (styles[toCheck[a]] !== undefined) supportedCSS = toCheck[a];
+// Bad eval to preven google closure to remove it from code o_O
+// After compresion replace it back to var IE = 'v' == '\v'
+var IE = eval('"v"=="\v"');
+
+jQuery.fn.extend({
+    rotate:function(parameters)
+    {
+        if (this.length===0||typeof parameters=="undefined") return;
+            if (typeof parameters=="number") parameters={angle:parameters};
+        var returned=[];
+        for (var i=0,i0=this.length;i<i0;i++)
+            {
+                var element=this.get(i);	
+                if (!element.Wilq32 || !element.Wilq32.PhotoEffect) {
+
+                    var paramClone = $.extend(true, {}, parameters); 
+                    var newRotObject = new Wilq32.PhotoEffect(element,paramClone)._rootObj;
+
+                    returned.push($(newRotObject));
+                }
+                else {
+                    element.Wilq32.PhotoEffect._handleRotation(parameters);
+                }
+            }
+            return returned;
+    },
+    getRotateAngle: function(){
+        var ret = [];
+        for (var i=0,i0=this.length;i<i0;i++)
+            {
+                var element=this.get(i);	
+                if (element.Wilq32 && element.Wilq32.PhotoEffect) {
+                    ret[i] = element.Wilq32.PhotoEffect._angle;
+                }
+            }
+            return ret;
+    },
+    stopRotate: function(){
+        for (var i=0,i0=this.length;i<i0;i++)
+            {
+                var element=this.get(i);	
+                if (element.Wilq32 && element.Wilq32.PhotoEffect) {
+                    clearTimeout(element.Wilq32.PhotoEffect._timer);
+                }
+            }
+    }
+});
+
+// Library agnostic interface
+
+Wilq32=window.Wilq32||{};
+Wilq32.PhotoEffect=(function(){
+
+	if (supportedCSS) {
+		return function(img,parameters){
+			img.Wilq32 = {
+				PhotoEffect: this
+			};
+            
+            this._img = this._rootObj = this._eventObj = img;
+            this._handleRotation(parameters);
+		}
+	} else {
+		return function(img,parameters) {
+			// Make sure that class and id are also copied - just in case you would like to refeer to an newly created object
+            this._img = img;
+
+			this._rootObj=document.createElement('span');
+			this._rootObj.style.display="inline-block";
+			this._rootObj.Wilq32 = 
+				{
+					PhotoEffect: this
+				};
+			img.parentNode.insertBefore(this._rootObj,img);
+			
+			if (img.complete) {
+				this._Loader(parameters);
+			} else {
+				var self=this;
+				// TODO: Remove jQuery dependency
+				jQuery(this._img).bind("load", function()
+				{
+					self._Loader(parameters);
+				});
+			}
+		}
+	}
+})();
+
+Wilq32.PhotoEffect.prototype={
+    _setupParameters : function (parameters){
+		this._parameters = this._parameters || {};
+        if (typeof this._angle !== "number") this._angle = 0 ;
+        if (typeof parameters.angle==="number") this._angle = parameters.angle;
+        this._parameters.animateTo = (typeof parameters.animateTo==="number") ? (parameters.animateTo) : (this._angle); 
+
+        this._parameters.step = parameters.step || this._parameters.step || null;
+		this._parameters.easing = parameters.easing || this._parameters.easing || function (x, t, b, c, d) { return -c * ((t=t/d-1)*t*t*t - 1) + b; }
+		this._parameters.duration = parameters.duration || this._parameters.duration || 1000;
+        this._parameters.callback = parameters.callback || this._parameters.callback || function(){};
+        if (parameters.bind && parameters.bind != this._parameters.bind) this._BindEvents(parameters.bind); 
+	},
+	_handleRotation : function(parameters){
+          this._setupParameters(parameters);
+          if (this._angle==this._parameters.animateTo) {
+              this._rotate(this._angle);
+          }
+          else { 
+              this._animateStart();          
+          }
+	},
+
+	_BindEvents:function(events){
+		if (events && this._eventObj) 
+		{
+            // Unbinding previous Events
+            if (this._parameters.bind){
+                var oldEvents = this._parameters.bind;
+                for (var a in oldEvents) if (oldEvents.hasOwnProperty(a)) 
+                        // TODO: Remove jQuery dependency
+                        jQuery(this._eventObj).unbind(a,oldEvents[a]);
+            }
+
+            this._parameters.bind = events;
+			for (var a in events) if (events.hasOwnProperty(a)) 
+				// TODO: Remove jQuery dependency
+					jQuery(this._eventObj).bind(a,events[a]);
+		}
+	},
+
+	_Loader:(function()
+	{
+		if (IE)
+		return function(parameters)
+		{
+			var width=this._img.width;
+			var height=this._img.height;
+			this._img.parentNode.removeChild(this._img);
+							
+			this._vimage = this.createVMLNode('image');
+			this._vimage.src=this._img.src;
+			this._vimage.style.height=height+"px";
+			this._vimage.style.width=width+"px";
+			this._vimage.style.position="absolute"; // FIXES IE PROBLEM - its only rendered if its on absolute position!
+			this._vimage.style.top = "0px";
+			this._vimage.style.left = "0px";
+
+			/* Group minifying a small 1px precision problem when rotating object */
+			this._container =  this.createVMLNode('group');
+			this._container.style.width=width;
+			this._container.style.height=height;
+			this._container.style.position="absolute";
+			this._container.setAttribute('coordsize',width-1+','+(height-1)); // This -1, -1 trying to fix ugly problem with small displacement on IE
+			this._container.appendChild(this._vimage);
+			
+			this._rootObj.appendChild(this._container);
+			this._rootObj.style.position="relative"; // FIXES IE PROBLEM
+			this._rootObj.style.width=width+"px";
+			this._rootObj.style.height=height+"px";
+			this._rootObj.setAttribute('id',this._img.getAttribute('id'));
+			this._rootObj.className=this._img.className;			
+		    this._eventObj = this._rootObj;	
+		    this._handleRotation(parameters);	
+		}
+		else
+		return function (parameters)
+		{
+			this._rootObj.setAttribute('id',this._img.getAttribute('id'));
+			this._rootObj.className=this._img.className;
+			
+			this._width=this._img.width;
+			this._height=this._img.height;
+			this._widthHalf=this._width/2; // used for optimisation
+			this._heightHalf=this._height/2;// used for optimisation
+			
+			var _widthMax=Math.sqrt((this._height)*(this._height) + (this._width) * (this._width));
+
+			this._widthAdd = _widthMax - this._width;
+			this._heightAdd = _widthMax - this._height;	// widthMax because maxWidth=maxHeight
+			this._widthAddHalf=this._widthAdd/2; // used for optimisation
+			this._heightAddHalf=this._heightAdd/2;// used for optimisation
+			
+			this._img.parentNode.removeChild(this._img);	
+			
+			this._aspectW = ((parseInt(this._img.style.width,10)) || this._width)/this._img.width;
+			this._aspectH = ((parseInt(this._img.style.height,10)) || this._height)/this._img.height;
+			
+			this._canvas=document.createElement('canvas');
+			this._canvas.setAttribute('width',this._width);
+			this._canvas.style.position="relative";
+			this._canvas.style.left = -this._widthAddHalf + "px";
+			this._canvas.style.top = -this._heightAddHalf + "px";
+			this._canvas.Wilq32 = this._rootObj.Wilq32;
+			
+			this._rootObj.appendChild(this._canvas);
+			this._rootObj.style.width=this._width+"px";
+			this._rootObj.style.height=this._height+"px";
+            this._eventObj = this._canvas;
+			
+			this._cnv=this._canvas.getContext('2d');
+            this._handleRotation(parameters);
+		}
+	})(),
+
+	_animateStart:function()
+	{	
+		if (this._timer) {
+			clearTimeout(this._timer);
+		}
+		this._animateStartTime = +new Date;
+		this._animateStartAngle = this._angle;
+		this._animate();
+	},
+    _animate:function()
+    {
+         var actualTime = +new Date;
+         var checkEnd = actualTime - this._animateStartTime > this._parameters.duration;
+
+         // TODO: Bug for animatedGif for static rotation ? (to test)
+         if (checkEnd && !this._parameters.animatedGif) 
+         {
+             clearTimeout(this._timer);
+         }
+         else 
+         {
+             if (this._canvas||this._vimage||this._img) {
+                 var angle = this._parameters.easing(0, actualTime - this._animateStartTime, this._animateStartAngle, this._parameters.animateTo - this._animateStartAngle, this._parameters.duration);
+                 this._rotate((~~(angle*10))/10);
+             }
+             if (this._parameters.step) {
+                this._parameters.step(this._angle);
+             }
+             var self = this;
+             this._timer = setTimeout(function()
+                     {
+                     self._animate.call(self);
+                     }, 10);
+         }
+
+         // To fix Bug that prevents using recursive function in callback I moved this function to back
+         if (this._parameters.callback && checkEnd){
+             this._angle = this._parameters.animateTo;
+             this._rotate(this._angle);
+             this._parameters.callback.call(this._rootObj);
+         }
+     },
+
+	_rotate : (function()
+	{
+		var rad = Math.PI/180;
+		if (IE)
+		return function(angle)
+		{
+            this._angle = angle;
+			this._container.style.rotation=(angle%360)+"deg";
+		}
+		else if (supportedCSS)
+		return function(angle){
+            this._angle = angle;
+			this._img.style[supportedCSS]="rotate("+(angle%360)+"deg)";
+		}
+		else 
+		return function(angle)
+		{
+            this._angle = angle;
+			angle=(angle%360)* rad;
+			// clear canvas	
+			this._canvas.width = this._width+this._widthAdd;
+			this._canvas.height = this._height+this._heightAdd;
+						
+			// REMEMBER: all drawings are read from backwards.. so first function is translate, then rotate, then translate, translate..
+			this._cnv.translate(this._widthAddHalf,this._heightAddHalf);	// at least center image on screen
+			this._cnv.translate(this._widthHalf,this._heightHalf);			// we move image back to its orginal 
+			this._cnv.rotate(angle);										// rotate image
+			this._cnv.translate(-this._widthHalf,-this._heightHalf);		// move image to its center, so we can rotate around its center
+			this._cnv.scale(this._aspectW,this._aspectH); // SCALE - if needed ;)
+			this._cnv.drawImage(this._img, 0, 0);							// First - we draw image
+		}
+
+	})()
+}
+
+if (IE)
+{
+Wilq32.PhotoEffect.prototype.createVMLNode=(function(){
+document.createStyleSheet().addRule(".rvml", "behavior:url(#default#VML)");
+		try {
+			!document.namespaces.rvml && document.namespaces.add("rvml", "urn:schemas-microsoft-com:vml");
+			return function (tagName) {
+				return document.createElement('<rvml:' + tagName + ' class="rvml">');
+			};
+		} catch (e) {
+			return function (tagName) {
+				return document.createElement('<' + tagName + ' xmlns="urn:schemas-microsoft.com:vml" class="rvml">');
+			};
+		}		
+})();
+}
+
+})(jQuery);
+
+$(function (){
+
+	var rotateTimeOut = function (){
+		$('#rotate').rotate({
+			angle:0,
+			animateTo:2160,
+			duration:8000,
+			callback:function (){
+				alert('网络超时，请检查您的网络设置！');
+			}
+		});
+	};
+	var bRotate = false;
+
+	var rotateFn = function (awards, angles, txt){
+		bRotate = !bRotate;
+		$('#rotate').stopRotate();
+		$('#rotate').rotate({
+			angle:0,
+			animateTo:angles+1800,
+			duration:8000,
+			callback:function (){
+				alert(txt);
+				bRotate = !bRotate;
+			}
+		})
+	};
+
+	$('.pointer').click(function (){
+
+		if(bRotate)return;
+		var item = rnd(0,7);
+
+		switch (item) {
+			case 0:
+				//var angle = [26, 88, 137, 185, 235, 287, 337];
+				rotateFn(0, 337, '未中奖');
+				break;
+			case 1:
+				//var angle = [88, 137, 185, 235, 287];
+				rotateFn(1, 26, '免单4999元');
+				break;
+			case 2:
+				//var angle = [137, 185, 235, 287];
+				rotateFn(2, 88, '免单50元');
+				break;
+			case 3:
+				//var angle = [137, 185, 235, 287];
+				rotateFn(3, 137, '免单10元');
+				break;
+			case 4:
+				//var angle = [185, 235, 287];
+				rotateFn(4, 185, '免单5元');
+				break;
+			case 5:
+				//var angle = [185, 235, 287];
+				rotateFn(5, 185, '免单5元');
+				break;
+			case 6:
+				//var angle = [235, 287];
+				rotateFn(6, 235, '免分期服务费');
+				break;
+			case 7:
+				//var angle = [287];
+				rotateFn(7, 287, '提高白条额度');
+				break;
+		}
+
+		console.log(item);
+	});
+});
+function rnd(n, m){
+	return Math.floor(Math.random()*(m-n+1)+n)
+}
+
+var buser = new B_User();
+buser.IsLogged(function(data,flag){
+	if(flag)
+	{
+		data=JSON.parse(data);
+		var uname=data.UserName;
+		if(uname.length>5)
+			uname=uname.substring(0,5)+"...";
+		$(".nav_user").html("<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-user\"></i> "+uname+" <span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/User/Default.aspx\">会员中心</a></li><li><a href=\"/User/Default.aspx\">推客中心</a></li><li><a href=\"/User/Default.aspx\">财务信息</a></li><li><a href=\"javascript:;\" onclick=\"LogoutFun();\">安全退出</a></li></ul>");
+	}
+	else
+	{
+		$(".nav_user").html("<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-user\"></i>登录/注册 <span class=\"caret\"></span></a><ul class=\"dropdown-menu\" role=\"menu\"><li><a href=\"/User/login.aspx\" target=\"_blank\">用户登录</a></li><li><a href=\"/User/Register.aspx\" target=\"_blank\">用户注册</a></li></ul>");
+	}
+});
+function LogoutFun()
+{
+	buser.Logout(function(){location=location;});
+}
+
+</script>
